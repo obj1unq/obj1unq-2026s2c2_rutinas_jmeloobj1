@@ -1,12 +1,11 @@
 import gimnasia.*
 
 describe "rutinas" {
-
-//Punto 1: rutinas
-//	const correrEnLaPlaya = // Una actividad de running con intensisdad 1.2
-//	const remarEnElDelta = // Una actividad de remo
-//	const remarEnCaminoRemeros = // Una actividad de remo comptetitivo
-//	const maratonBA = //Una maraton con intensidad 1.5
+// rutinas
+	const correrEnLaPlaya = new Running()
+	const remarEnElDelta = new Remo()
+	const remarEnCaminoRemeros = new Remodecompeticion()
+	const maratonBA = new Maraton()
 
 //Punto 2: personas
 	//const calamardo = //Una persona Sedentaria con peso 60 y tiempo de ejercicio 5
@@ -17,12 +16,11 @@ describe "rutinas" {
 	//const nautico = //un predio con remarEnElDelta y remarEnCaminoRemeros
 	//const clubBarrial = //un club con recreo y nautico
 //	
-//
 // PUNTO 1
-//	test "1.1 consulta running" {
-//		//correrEnLaPlaya deberia gastar 360 calorias al practicarse por 5 minutos
-//		//correrEnLaPlaya deberia gastar 10200 calorias al practicarse por 90 minutos
-//	}
+	test "1.1 consulta running" {
+		correrEnLaPlaya.intensidad(1.2)
+		assert.equals(correrEnLaPlaya.caloriasconsumidas(), 900)
+	}
 
 //	test "1.2 consulta maraton" {
 //		//maratonBA deberia gastar 900 calorias al practicarse por 5 minutos
