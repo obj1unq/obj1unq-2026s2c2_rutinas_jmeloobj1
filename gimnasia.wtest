@@ -53,9 +53,9 @@ describe "rutinas" {
 	const calamardo = new Persona()
 	test '2.1.1 test sedentario running' {
 		 calamardo.peso(60)
-		 calamardo.rutina(correrEnLaPlaya)
 		 correrEnLaPlaya.tiempo(5)
-		 
+		 assert.equals(59.948, (calamardo.pesoPerdidoEnRutina(correrEnLaPlaya)).truncate(3)  ) 
+
 
 	} 
 	
