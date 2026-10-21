@@ -1,7 +1,6 @@
 import gimnasia.*
 
 describe "rutinas" {
-// rutinas
 	const correrEnLaPlaya = new Running()
 	const remarEnElDelta = new Remo()
 	const remarEnCaminoRemeros = new Remodecompeticion()
@@ -25,21 +24,28 @@ describe "rutinas" {
 		assert.equals(correrEnLaPlaya.caloriasconsumidas(), 10200)
 
 	}
+	test "1.2 consulta maraton" {
+		maratonBA.intensidad(1.5)
+		maratonBA.tiempo(5)
+		assert.equals(maratonBA.caloriasconsumidas(), 900)
+		maratonBA.tiempo(90)
+		assert.equals(maratonBA.caloriasconsumidas(), 25500)	
+	}
 
-//	test "1.2 consulta maraton" {
-//		//maratonBA deberia gastar 900 calorias al practicarse por 5 minutos
-//		//maratonBA deberia gastar 25500 calorias al practicarse por 90 minutos
-//	}
+	test "1.3 consulta remo" {
+		remarEnElDelta.tiempo(5)
+		assert.equals(remarEnElDelta.caloriasconsumidas(), 520)
+		remarEnElDelta.tiempo(90)
+		assert.equals(remarEnElDelta.caloriasconsumidas(), 9360)		
+	}		
 
-//	test "1.3 consulta remo" {
-//		//remarEnElDelta deberia gastar 520 calorias al practicarse por 5 minutos
-//		//remarEnElDelta deberia gastar 9360 calorias al practicarse por 90 minutos
-//	}
-
-//	test "1.4 consulta remo competitivo" {
-//		//remarEnCaminoRemeros deberia gastar 510 calorias al practicarse por 5 minutos
-//		//remarEnCaminoRemeros deberia gastar 12750 calorias al practicarse por 90 minutos
-//	}
+	test "1.4 consulta remo de competicion"{
+		remarEnCaminoRemeros.tiempo(5)
+		assert.equals(remarEnCaminoRemeros.caloriasconsumidas(), 510)
+		remarEnCaminoRemeros.tiempo(90)
+		assert.equals(remarEnCaminoRemeros.caloriasconsumidas(), 12750)	
+	}
+		
 
 //Punto 2: Personas
 	//ATENCION: usar el metodo truncate(3) para truncar un numero a 3 decimales
