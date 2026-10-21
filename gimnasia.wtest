@@ -50,11 +50,14 @@ describe "rutinas" {
 //Punto 2: Personas
 	//ATENCION: usar el metodo truncate(3) para truncar un numero a 3 decimales
 	// Ej: 1.2345.truncate(3) -> devuelve 1.234 
-	
-//	test '2.1.1 test sedentario running' {
-//		// hacer que calamardo practique correrEnLaPlaya
-//		// el peso de calamardo debería ser 59.948 (truncado a 3 decimales)
-//	} 
+	const calamardo = new Persona()
+	test '2.1.1 test sedentario running' {
+		 calamardo.peso(60)
+		 calamardo.rutina(correrEnLaPlaya)
+		 correrEnLaPlaya.tiempo(5)
+		 
+
+	} 
 	
 //	test '2.1.2 test sedentario maraton' {
 //		// hacer que calamardo practique maratonBA

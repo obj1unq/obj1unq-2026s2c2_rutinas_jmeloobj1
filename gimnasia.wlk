@@ -34,9 +34,30 @@ class Remodecompeticion inherits Remo {
   override method caloriasconsumidas() = (100 * (tiempo - self.descanso())) * self.intensidad()
 }
 
-class Persona{
- const property rutina = Rutina 
- const property arquetipoPersona
+class Persona{ 
+ const property arquetipo = sedentaria
+ var property peso = 0 
 
+method pesoPerdidoEnRutina(rutina) = peso - (rutina.caloriasconsumidas() / arquetipo.caloriasPorKilo())
 
+method aplicaARutina() {
+  arquetipo.aplicaARutina(peso)
+}
+
+}
+
+object sedentaria {
+  method caloriasPorKilo() = 7000
+
+  method aplicaARutina(peso) {
+   return peso > 50
+  }
+}
+
+object atleta {
+  method caloriasPorKilo() = 7000
+
+  method aplicaARutina(peso) {
+   return peso > 50
+  }
 }
