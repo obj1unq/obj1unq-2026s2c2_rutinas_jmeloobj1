@@ -3,7 +3,7 @@
 class Rutina {
   var property intensidad = 0
   var property descanso = 0
-  var property tiempo
+  var property tiempo = 0
   
   method caloriasconsumidas() = (100 * (tiempo - descanso)) * intensidad
   
@@ -11,6 +11,8 @@ class Rutina {
 
 class Running inherits Rutina {
   override method descanso() = if (tiempo > 20) 5 else 2
+
+  override method caloriasconsumidas() = (100 * (tiempo - self.descanso()) * intensidad)
 }
 
 class Maraton inherits Running {

@@ -19,7 +19,11 @@ describe "rutinas" {
 // PUNTO 1
 	test "1.1 consulta running" {
 		correrEnLaPlaya.intensidad(1.2)
-		assert.equals(correrEnLaPlaya.caloriasconsumidas(), 900)
+		correrEnLaPlaya.tiempo(5)
+		assert.equals(correrEnLaPlaya.caloriasconsumidas(), 360)
+		correrEnLaPlaya.tiempo(90)
+		assert.equals(correrEnLaPlaya.caloriasconsumidas(), 10200)
+
 	}
 
 //	test "1.2 consulta maraton" {
