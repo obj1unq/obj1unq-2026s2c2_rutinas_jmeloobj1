@@ -15,7 +15,7 @@ class Running inherits Rutina {
 }
 
 class Maraton inherits Running {
-   override method caloriasconsumidas() = super() * 2
+  override method caloriasconsumidas() = super() * 2
 }
 
 class Remo inherits Rutina {
@@ -34,30 +34,47 @@ class Remodecompeticion inherits Remo {
   override method caloriasconsumidas() = (100 * (tiempo - self.descanso())) * self.intensidad()
 }
 
-class Persona{ 
- const property arquetipo = sedentaria
- var property peso = 0 
+class Persona {
+  var property peso = 0
 
-method pesoPerdidoEnRutina(rutina) = peso - (rutina.caloriasconsumidas() / arquetipo.caloriasPorKilo())
-
-method aplicaARutina() {
-  arquetipo.aplicaARutina(peso)
-}
-
-}
-
-object sedentaria {
-  method caloriasPorKilo() = 7000
-
-  method aplicaARutina(peso) {
-   return peso > 50
+  var property rutina = Rutina
+  
+  method aplicaARutina() {
+    if (!self.puedeAplicar()) self.error(
+        "esta rutina no puede ser aplicada a la persona por su peso"
+      )
+    peso = (peso - self.pesoPerdidoEnRutina()) 
   }
+
+  method pesoPerdidoEnRutina() = rutina.caloriasconsumidas() / self.caloriasPorKilo()
+
+  method puedeAplicar() 
+
+  method caloriasPorKilo()  
+  }
+
+
+
+//ARQUETIPOS
+class Sedentaria inherits Persona{
+  var property tiempo = 0
+  
+  override method caloriasPorKilo() = 7000
+  
+  override method puedeAplicar() = self.peso() > 50
 }
 
-object atleta {
-  method caloriasPorKilo() = 7000
-
-  method aplicaARutina(peso) {
-   return peso > 50
+class Atleta inherits Persona{
+  const property tiempo = 90 
+   
+  override method rutina(_rutina){
+  rutina = _rutina
+  rutina.tiempo(tiempo)
   }
+
+  override method caloriasPorKilo() = 8000
+  
+  override method puedeAplicar() = rutina.caloriasconsumidas() > 10000
+
+  override method pesoPerdidoEnRutina() =  super() - 1
 }
