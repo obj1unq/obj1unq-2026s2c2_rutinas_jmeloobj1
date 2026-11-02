@@ -56,7 +56,9 @@ class Persona {
  //ARQUETIPOS
 
 class Sedentaria inherits Persona {
-  var property tiempo = 0
+  const tiempo 
+
+  override method tiempo()  = tiempo
   
   override method caloriasPorKilo() = 7000
   
